@@ -62,3 +62,6 @@ def incident_list(request):
     return render(request, 'incidents_list.html', {
         'incidents': incidents,
     })
+
+def guidelines(request):
+    return render(request, 'guidelines.html')
