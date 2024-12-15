@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Incident List</h2>
+
+
+<form id="filterForm">
+    <label for="category">Category:</label>
+    <input type="text" id="category" placeholder="Filter by category">
+
+    <label for="organization">Organization:</label>
+    <input type="text" id="organization" placeholder="Filter by organization">
+
+    <label for="date">Reported Date:</label>
+    <input type="date" id="date">
+
+    <button type="submit">Apply Filters</button>
+</form>
+
+<!-- Incident List Table -->
+<table id="incidentTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Reported Date</th>
+            <th>Organization</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for incident in incidents %}
+            <tr>
+                <td>{{ incident.id }}</td>
+                <td class="category">{{ incident.category.name }}</td>
+                <td>{{ incident.description }}</td>
+                <td>{{ incident.status }}</td>
+                <td class="reported-date">{{ incident.reported_at|date:"m/d/Y" }}</td>
+                <td class="organization">{{ incident.organization }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="6">No incidents found.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

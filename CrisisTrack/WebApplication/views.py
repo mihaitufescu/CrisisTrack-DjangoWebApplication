@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, IncidentCreationForm
 from django.contrib.auth.decorators import login_required
+from .models import Incident
 
 # Home View
 def index(request):
@@ -39,3 +40,25 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('index')
+
+@login_required
+def create_incident(request):
+    if request.method == 'POST':
+        form = IncidentCreationForm(request.POST)
+        if form.is_valid():
+            incident = form.save(commit=False)
+            incident.reported_by = request.user  # Attach the logged-in user to the incident
+            incident.save()
+            return redirect('index')  # Redirect to the list of incidents or any page you'd prefer
+    else:
+        form = IncidentCreationForm()
+    return render(request, 'create_incident.html', {'form': form})
+
+@login_required
+def incident_list(request):
+    # Get all incidents (no filtering on the server side)
+    incidents = Incident.objects.all()
+    print(f"Number of incidents: {incidents.count()}")
+    return render(request, 'incidents_list.html', {
+        'incidents': incidents,
+    })

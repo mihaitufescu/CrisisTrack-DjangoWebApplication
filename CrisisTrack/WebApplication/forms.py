@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
+from .models import Incident, IncidentCategory
 
 User = get_user_model()
 
@@ -26,3 +27,19 @@ class CustomUserCreationForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+class IncidentCreationForm(forms.ModelForm):
+    class Meta:
+        model = Incident
+        fields = ['category', 'description', 'organization']  # Exclude status from form fields
+
+    # Status choices (you can keep this, though it's no longer needed in the form)
+    status_choices = [
+        ('New', 'New'),
+        ('In Progress', 'In Progress'),
+        ('Resolved', 'Resolved'),
+    ]
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Set the default value of status to 'New', but keep it hidden from the form
+        self.instance.status = 'New'
