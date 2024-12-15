@@ -1,0 +1,14 @@
+.env
+env/
+
+# Byte-compiled files
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+
+.vscode
