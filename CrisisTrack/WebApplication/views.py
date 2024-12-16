@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
-from .forms import CustomUserCreationForm, IncidentCreationForm
+from .forms import CustomUserCreationForm, IncidentCreationForm, ReviewIncidentForm
 from django.contrib.auth.decorators import login_required
 from .models import Incident, IncidentGuideline
+from django.core.mail import send_mail
+from django.http import HttpResponseRedirect
 from django.db.models import Count
 import matplotlib.pyplot as plt
 import io
@@ -81,3 +83,35 @@ def guideline_detail(request, incident_type):
         'video_url': guideline.video_url,
         'research_papers': guideline.get_research_papers(),
     })
+
+def review_incident(request, incident_id):
+    # Fetch the incident by ID
+    incident = get_object_or_404(Incident, id=incident_id)
+    
+    # You can now pass the incident to the template to display details
+    incident = get_object_or_404(Incident, id=incident_id)
+    
+    # Handle GET request to show the form
+    if request.method == 'GET':
+        form = ReviewIncidentForm()
+        return render(request, 'review_incident.html', {'incident': incident, 'form': form})
+    
+    # Handle POST request to process the form and send the email
+    elif request.method == 'POST':
+        form = ReviewIncidentForm(request.POST)
+        if form.is_valid():
+            custom_message = form.cleaned_data['custom_message']
+            
+            # Send email to the reported_by user
+            if incident.reported_by.email:
+                send_mail(
+                    subject=f"Incident Update: {incident.title}",
+                    message=f"Dear {incident.reported_by.username},\n\n{custom_message}\n\nYour incident titled '{incident.title}' has been processed. Please check for updates.",
+                    from_email='admin@example.com',  # Replace with your admin email
+                    recipient_list=[incident.reported_by.email],
+                )
+            
+            # Redirect to the incident list page after sending the email
+            return HttpResponseRedirect('/admin/WebApplication/incident/')  # Or redirect to any desired page
+    
+    return render(request, 'web_application/review_incident.html', {'incident': incident, 'form': form})

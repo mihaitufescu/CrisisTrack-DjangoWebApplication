@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Review Incident: {{ incident.title }}</h1>
+    <p>Category: {{ incident.category }}</p>
+    <p>Status: {{ incident.status }}</p>
+    <p>Reported By: {{ incident.reported_by.username }}</p>
+    <p>Reported At: {{ incident.reported_at }}</p>
+    <p>Organization: {{ incident.organization }}</p>
+
+    <h2>Review and Send Email</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Send Email</button>
+    </form>
+
+    <br>
+{% endblock %}

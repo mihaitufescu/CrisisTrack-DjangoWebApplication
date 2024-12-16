@@ -43,3 +43,6 @@ class IncidentCreationForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         # Set the default value of status to 'New', but keep it hidden from the form
         self.instance.status = 'New'
+
+class ReviewIncidentForm(forms.Form):
+    custom_message = forms.CharField(widget=forms.Textarea, label="Custom Message", required=True)
