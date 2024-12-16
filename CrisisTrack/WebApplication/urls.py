@@ -10,4 +10,5 @@ urlpatterns = [
     path('create_incident/', views.create_incident, name='create_incident'),
     path('incidents_list/', views.incident_list, name='incident_list'),
     path('guidelines/', views.guidelines, name='guidelines'),
+    path('guideline/<str:incident_type>/', views.guideline_detail, name='guideline_detail'),
 ]

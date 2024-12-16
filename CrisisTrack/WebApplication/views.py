@@ -1,8 +1,12 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from .forms import CustomUserCreationForm, IncidentCreationForm
 from django.contrib.auth.decorators import login_required
-from .models import Incident
+from .models import Incident, IncidentGuideline
+from django.db.models import Count
+import matplotlib.pyplot as plt
+import io
+import urllib, base64
 
 # Home View
 def index(request):
@@ -65,3 +69,15 @@ def incident_list(request):
 
 def guidelines(request):
     return render(request, 'guidelines.html')
+
+def guideline_detail(request, incident_type):
+    guideline = get_object_or_404(IncidentGuideline, incident_type=incident_type)
+    steps = guideline.steps.split("\\n")  # your original line
+    print(steps)
+    return render(request, 'guideline_detail.html', {
+        'incident_type': guideline.incident_type,
+        'description': guideline.description,
+        'steps': steps,
+        'video_url': guideline.video_url,
+        'research_papers': guideline.get_research_papers(),
+    })

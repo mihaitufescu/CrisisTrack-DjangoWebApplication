@@ -53,3 +53,17 @@ class Incident(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.category.name} ({self.status})"
+
+class IncidentGuideline(models.Model):
+    incident_type = models.CharField(max_length=255, unique=True)
+    description = models.TextField()
+    steps = models.TextField()  # Use JSONField for structured data if needed
+    video_url = models.URLField(max_length=500, blank=True, null=True)  # Optional video
+    research_paper_links = models.TextField(blank=True, null=True)  # Store multiple links separated by newline
+
+    def get_research_papers(self):
+        # Split research_paper_links into a list for easy template rendering
+        return self.research_paper_links.split("\n") if self.research_paper_links else []
+
+    def __str__(self):
+        return self.incident_type
