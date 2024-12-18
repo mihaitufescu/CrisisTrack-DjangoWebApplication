@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Create a New Incident</h2>
+  <h2>Creaza un incident</h2>
   <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Submit Incident</button>
+    <button type="submit">Trimite un incident</button>
   </form>
 {% endblock %}

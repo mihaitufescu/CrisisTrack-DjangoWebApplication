@@ -1,13 +1,20 @@
 {% extends 'base.html' %}
 
-{% block title %}Home - CrisisTrack{% endblock %}
+{% block title %}Pagină principală - CrisisTrack{% endblock %}
 
 {% block content %}
-<h1>Welcome to {{ app_name }}</h1>
+<h1>{{ app_name }}</h1>
 <p>{{ app_description }}</p>
 {% if user.is_authenticated %}
-    <p>Welcome back, {{ user.first_name }}!</p>
+    <p>Bine ai venit, {{ user.first_name }}!</p>
 {% else %}
-    <p>Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to get started.</p>
+    <p>Te rog <a href="{% url 'login' %}">autentifica-te</a> sau <a href="{% url 'register' %}">inregistreaza-te</a> pentru a incepe.</p>
 {% endif %}
+<div class="card mt-4" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Ghid de urmat pentru incidente</h5>
+        <p class="card-text">Explorează secțiunea de ghiduri pentru a înțelege pașii necesari în gestionarea diferitelor tipuri de incidente.</p>
+        <a href="/guidelines" class="btn btn-primary">Vezi Ghidurile</a>
+    </div>
+</div>
 {% endblock %}

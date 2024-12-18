@@ -1,109 +1,137 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2 class="text-center mb-4">Guidelines of the Swedish Financial Sector on Cybersecurity</h2>
+<h2 class="text-center mb-4">Ghidul sectorului financiar Suedez privind securitatea cibernetică</h2>
         
-        <p>The Swedish financial sector operates within a robust regulatory framework designed to ensure the stability, security, and resilience of its financial institutions. Cybersecurity plays a critical role in safeguarding sensitive financial information, maintaining consumer trust, and ensuring uninterrupted financial services.</p>
+<p>Sectorul financiar suedez funcționează într-un cadru de reglementare robust, proiectat pentru a asigura stabilitatea, securitatea și reziliența instituțiilor financiare. Securitatea cibernetică joacă un rol esențial în protejarea informațiilor financiare sensibile, menținerea încrederii consumatorilor și asigurarea continuității serviciilor financiare.</p>
 
-        <hr>
+<hr>
 
-        <section>
-            <h2>1. Regulatory Framework</h2>
-            <h3>1.1. Financial Supervisory Authority (FSA) Guidelines</h3>
+<section>
+    <h2>1. Cadru de Reglementare</h2>
+    <h3>1.1. Acordurile Basel</h3>
+    <ul>
+        <li><strong>Basel II:</strong> Introduse în 2004, se concentrează pe trei piloni esențiali:
             <ul>
-                <li><strong>NIS Directive:</strong> Network and Information Systems Security Directive.</li>
-                <li><strong>GDPR:</strong> General Data Protection Regulation, ensuring privacy and protection of personal data.</li>
-                <li><strong>Basel Committee’s Cyber-Resilience Principles:</strong> Guidance for financial institutions to enhance cybersecurity measures.</li>
+                <li>Cerințe minime de capital pentru a asigura că băncile dețin suficient capital pentru a acoperi riscurile.</li>
+                <li>Proces de revizuire supravegheată pentru a evalua procesele interne de management al riscurilor ale băncilor.</li>
+                <li>Disciplină de piață prin cerințe de divulgare îmbunătățite.</li>
             </ul>
-            <h3>1.2. Key Obligations:</h3>
-            <ul>
-                <li>Risk assessments for cyber threats.</li>
-                <li>Secure handling and storage of financial data.</li>
-                <li>Incident reporting within defined timelines to authorities.</li>
-                <li>Business continuity and disaster recovery plans.</li>
-            </ul>
-        </section>
+        </li>
+        <li><strong>Basel III:</strong> Implementat după criza financiară din 2008, întărește cerințele de capital și introduce noi cerințe privind lichiditatea și levierul băncilor. Pune accent pe capital de înaltă calitate, un raport de levier și rate de acoperire a lichidității.</li>
+    </ul>
+    
+    <h3>1.2. Cadrul de Guvernanță pentru Securitatea IT</h3>
+    <ul>
+        <li><strong>COBIT (Control Objectives for Information and Related Technologies):</strong> Un cadru pentru dezvoltarea, implementarea, monitorizarea și îmbunătățirea practicilor de guvernanță și management IT.</li>
+        <li><strong>ITIL (Biblioteca de Infrastructură a Tehnologiei Informației):</strong> Un set de practici pentru managementul serviciilor IT (ITSM), axat pe alinierea serviciilor IT la nevoile afacerii.</li>
+        <li><strong>Standardele ISO:</strong> Diverse standarde ISO, precum ISO 27001 pentru sistemele de management al securității informației, oferă linii directoare pentru stabilirea, implementarea, menținerea și îmbunătățirea continuă a securității informației.</li>
+    </ul>
+    
+    <h3>1.3. Organisme de Reglementare</h3>
+    <ul>
+        <li>Organizații precum Consiliul pentru Stabilitate Financiară (Financial Stability Board - FSB) și Comitetul Basel pentru Supravegherea Bancară (BCBS) supraveghează implementarea acestor reglementări și cadre, asigurând că instituțiile financiare respectă liniile directoare stabilite pentru a atenua riscurile și a îmbunătăți stabilitatea.</li>
+    </ul>
+    
+    <h3>1.4. Reglementări Naționale</h3>
+    <ul>
+        <li>Pe lângă cadrele internaționale, fiecare țară poate avea propriile reglementări (de exemplu, Legea Dodd-Frank în SUA, GDPR în Europa) care impun cerințe specifice instituțiilor financiare în ceea ce privește protecția datelor, managementul riscurilor și reziliența operațională.</li>
+    </ul>
+    
+    <p>Acest cadru cuprinzător de reglementare are scopul de a asigura reziliența instituțiilor financiare în fața diverselor riscuri, inclusiv amenințările cibernetice, și de a menține integritatea și stabilitatea sistemului financiar.</p>
+</section>
 
-        <hr>
 
-        <section>
-            <h2>2. Cybersecurity Best Practices</h2>
-            <h3>2.1. Threat Management and Monitoring</h3>
-            <ul>
-                <li>Deploying advanced threat detection tools.</li>
-                <li>Conducting penetration testing and vulnerability assessments.</li>
-                <li>Implementing Security Information and Event Management (SIEM) systems for real-time monitoring.</li>
-            </ul>
-            <h3>2.2. Employee Awareness and Training</h3>
-            <ul>
-                <li>Regular cybersecurity training programs for all staff.</li>
-                <li>Phishing simulations to educate employees on common attack vectors.</li>
-                <li>Establishing clear reporting channels for suspected breaches.</li>
-            </ul>
-            <h3>2.3. Access Control</h3>
-            <ul>
-                <li>Enforcing multi-factor authentication (MFA) for all sensitive systems.</li>
-                <li>Role-based access controls (RBAC) to restrict data access to authorized personnel only.</li>
-            </ul>
-            <h3>2.4. Encryption Standards</h3>
-            <ul>
-                <li>End-to-end encryption for financial transactions and sensitive communications.</li>
-                <li>Regular updates to encryption algorithms to counter evolving threats.</li>
-            </ul>
-        </section>
+<hr>
 
-        <hr>
+<section>
+    <h2>2. Cele Mai Bune Practici de Securitate Cibernetică</h2>
+    <h3>2.1. Managementul și Monitorizarea Amenințărilor</h3>
+    <ul>
+        <li>Implementarea de instrumente avansate de detectare a amenințărilor.</li>
+        <li>Realizarea de teste de penetrare și evaluări ale vulnerabilităților.</li>
+        <li>Utilizarea sistemelor SIEM (Managementul Securității și al Evenimentelor) pentru monitorizare în timp real.</li>
+    </ul>
+    <h3>2.2. Conștientizarea și Pregătirea Angajaților</h3>
+    <ul>
+        <li>Programe regulate de instruire în securitate cibernetică pentru toți angajații.</li>
+        <li>Simulări de phishing pentru educarea angajaților privind vectorii comuni de atac.</li>
+        <li>Stabilirea unor canale clare de raportare a încălcărilor suspectate.</li>
+    </ul>
+    <h3>2.3. Controlul Accesului</h3>
+    <ul>
+        <li>Aplicarea autentificării multi-factor (MFA) pentru toate sistemele sensibile.</li>
+        <li>Controlul accesului bazat pe roluri (RBAC) pentru a restricționa accesul la date doar pentru personalul autorizat.</li>
+    </ul>
+    <h3>2.4. Standarde de Criptare</h3>
+    <ul>
+        <li>Criptare end-to-end pentru tranzacțiile financiare și comunicațiile sensibile.</li>
+        <li>Actualizări regulate ale algoritmilor de criptare pentru a contracara amenințările în evoluție.</li>
+    </ul>
+</section>
 
-        <section>
-            <h2>3. Incident Response and Recovery</h2>
-            <h3>3.1. Incident Response Plans</h3>
-            <ul>
-                <li>Defined roles and responsibilities for the incident response team.</li>
-                <li>Procedures for containment, eradication, and recovery from cyber incidents.</li>
-            </ul>
-            <h3>3.2. Reporting Protocols</h3>
-            <ul>
-                <li>Immediate reporting of significant incidents to Finansinspektionen and other relevant authorities.</li>
-                <li>Transparent communication with affected customers and stakeholders.</li>
-            </ul>
-            <h3>3.3. Post-Incident Analysis</h3>
-            <ul>
-                <li>Conducting root cause analysis.</li>
-                <li>Updating policies and controls based on lessons learned.</li>
-            </ul>
-        </section>
+<hr>
 
-        <hr>
+<section>
+    <h2>3. Răspuns și Recuperare în Caz de Incident</h2>
+    <h3>3.1. Planuri de Răspuns la Incidente</h3>
+    <ul>
+        <li>Definirea rolurilor și responsabilităților echipei de răspuns la incidente.</li>
+        <li>Proceduri pentru izolarea, eradicarea și recuperarea după incidentele cibernetice.</li>
+    </ul>
+    <h3>3.2. Protocoale de Raportare</h3>
+    <ul>
+        <li>Raportarea imediată a incidentelor semnificative către Finansinspektionen și alte autorități relevante.</li>
+        <li>Comunicare transparentă cu clienții și părțile interesate afectate.</li>
+    </ul>
+    <h3>3.3. Analiza Post-Incident</h3>
+    <ul>
+        <li>Realizarea unei analize pentru identificarea cauzei principale.</li>
+        <li>Actualizarea politicilor și controalelor bazată pe lecțiile învățate.</li>
+    </ul>
+</section>
 
-        <section>
-            <h2>4. Collaboration and Information Sharing</h2>
-            <h3>4.1. Sector-Wide Collaboration</h3>
-            <ul>
-                <li>Participation in industry-specific threat intelligence sharing platforms.</li>
-                <li>Collaboration with national and international regulatory bodies.</li>
-            </ul>
-            <h3>4.2. Public-Private Partnerships</h3>
-            <ul>
-                <li>Partnering with government agencies like the Swedish Civil Contingencies Agency (MSB) to enhance collective cyber resilience.</li>
-            </ul>
-        </section>
+<hr>
 
-        <hr>
+<section>
+    <h2>4. Colaborare și Schimb de Informații</h2>
+    <h3>4.1. Colaborare la Nivel de Sector</h3>
+    <ul>
+        <li>Participarea la platforme de schimb de informații despre amenințări specifice industriei.</li>
+        <li>Colaborare cu autorități de reglementare naționale și internaționale.</li>
+    </ul>
+    <h3>4.2. Parteneriate Public-Privat</h3>
+    <ul>
+        <li>Parteneriat cu agenții guvernamentale precum Agenția Suedeză pentru Contingențe Civile (MSB) pentru a îmbunătăți reziliența cibernetică colectivă.</li>
+    </ul>
+</section>
 
-        <section>
-            <h2>5. Emerging Trends and Future Considerations</h2>
-            <h3>5.1. Artificial Intelligence (AI) and Machine Learning (ML)</h3>
-            <ul>
-                <li>Utilizing AI/ML for predictive threat modeling and anomaly detection.</li>
-            </ul>
-            <h3>5.2. Cloud Security</h3>
-            <ul>
-                <li>Adopting robust security configurations for cloud-based services.</li>
-                <li>Ensuring compliance with data sovereignty requirements for cloud storage.</li>
-            </ul>
-            <h3>5.3. Zero Trust Architecture</h3>
-            <ul>
-                <li>Implementing "never trust, always verify" principles for network security.</li>
-            </ul>
-        </section>
+<hr>
+
+<section>
+    <h2>5. Tendințe tehnlogice și sugestii de implementare pentru imbunatarea securitatii infrastructurii</h2>
+    <h3>5.1. Inteligență Artificială (IA) și Învățare Automată (ML)</h3>
+    <ul>
+        <li>Utilizarea IA/ML pentru modelarea predictivă a amenințărilor și detectarea anomaliilor, permițând identificarea timpurie a activităților rău intenționate.</li>
+        <li>Automatizarea proceselor de răspuns pentru a accelera timpul de reacție la incidente și a reduce intervenția manuală în cazurile critice.</li>
+        <li>Îmbunătățirea analizei datelor de securitate cibernetică prin identificarea modelelor și tendințelor complexe care nu sunt vizibile prin metodele tradiționale.</li>
+        <li>Detectarea proactivă a activităților suspecte în rețele prin utilizarea algoritmilor de învățare automată.</li>
+    </ul>
+    <h3>5.2. Securitatea Cloud</h3>
+    <ul>
+        <li>Adoptarea configurațiilor robuste de securitate pentru serviciile bazate pe cloud, incluzând criptarea datelor atât în tranzit, cât și în repaus.</li>
+        <li>Monitorizarea continuă a activităților din cloud pentru a detecta accesul neautorizat sau comportamentele anormale.</li>
+        <li>Implementarea controalelor stricte de acces și a autentificării multifactoriale pentru utilizatorii platformelor cloud.</li>
+        <li>Respectarea cerințelor de suveranitate a datelor pentru stocarea în cloud, asigurând conformitatea cu reglementările locale și internaționale.</li>
+        <li>Optimizarea arhitecturii de backup și recuperare în cloud pentru a minimiza pierderile de date în cazul unui atac.</li>
+    </ul>
+    <h3>5.3. Arhitectura Zero Trust</h3>
+    <ul>
+        <li>Implementarea principiilor „nu avea încredere niciodată, verifică întotdeauna” pentru securitatea rețelei, oferind o protecție stratificată împotriva accesului neautorizat.</li>
+        <li>Segmentarea rețelei pentru a limita propagarea breșelor și pentru a proteja zonele critice în cazul unui incident de securitate.</li>
+        <li>Autentificarea strictă a utilizatorilor și dispozitivelor înainte de a li se permite accesul la resursele organizației.</li>
+        <li>Monitorizarea continuă a tuturor activităților din rețea pentru a detecta și reacționa prompt la orice comportament anormal.</li>
+        <li>Integrarea soluțiilor de securitate bazate pe Zero Trust cu alte tehnologii de apărare cibernetică pentru a crea un ecosistem de securitate cuprinzător și rezilient.</li>
+    </ul>
+</section>
 {% endblock %}

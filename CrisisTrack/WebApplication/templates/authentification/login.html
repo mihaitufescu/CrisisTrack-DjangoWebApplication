@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 
-{% block title %}Login - CrisisTrack{% endblock %}
+{% block title %}Autentificare - CrisisTrack{% endblock %}
 
 {% block content %}
-<h2>Login</h2>
+<h2>Autentificare</h2>
 <form method="POST">
     {% csrf_token %}
     {% if error %}
         <p class="text-danger">{{ error }}</p>
     {% endif %}
     <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
+        <label for="username" class="form-label">Nume de utilizator</label>
         <input type="text" class="form-control" id="username" name="username" required>
     </div>
     <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
+        <label for="password" class="form-label">Parola</label>
         <input type="password" class="form-control" id="password" name="password" required>
     </div>
-    <button type="submit" class="btn btn-primary">Login</button>
+    <button type="submit" class="btn btn-primary">Autentifica</button>
 </form>
 {% endblock %}

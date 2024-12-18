@@ -2,17 +2,17 @@
 
 {% block content %}
 
-<h2> {{ incident_type }} guidelines </h2>
+<h2> Ghiduri pentru {{ incident_type }} </h2>
 <p>{{ description }}</p>
-<h3>Steps to Handle:</h3>
+<h3>Pași de Urmat:</h3>
 <ul style="list-style-type: none;">
-    {% for step in steps%}
+    {% for step in steps %}
         <li>{{ step }}</li>
     {% endfor %}
 </ul>
 
     {% if video_url %}
-        <h3 class="mt-4">Related informative video:</h3>
+        <h3 class="mt-4">Video informativ relevant:</h3>
         <div class="embed-responsive embed-responsive-16by9">
             <iframe 
             width="560" 
@@ -27,7 +27,7 @@
     {% endif %}
 
     {% if research_papers %}
-        <h3 class="mt-4">Research papers:</h2>
+        <h3 class="mt-4">Lucrări de cercetare:</h3>
         <ul>
                 {% for paper in research_papers %}
                     <li><a href="{{ paper }}" target="_blank">{{ paper }}</a></li>

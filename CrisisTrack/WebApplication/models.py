@@ -38,9 +38,9 @@ class Recommendation(models.Model):
 # Incident Model
 class Incident(models.Model):
     STATUS_CHOICES = [
-        ('new', 'New'),
-        ('in_progress', 'In Progress'),
-        ('resolved', 'Resolved'),
+        ('nou', 'nou'),
+        ('in_progres', 'In progres'),
+        ('rezolvat', 'Rezolvat'),
     ]
 
     title = models.CharField(max_length=255)

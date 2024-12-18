@@ -6,8 +6,8 @@ User = get_user_model()
 
 class CustomUserCreationForm(forms.ModelForm):
     # Adding extra fields for your custom user model
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
+    password1 = forms.CharField(label='Parola', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Confirma', widget=forms.PasswordInput)
     
     class Meta:
         model = User
@@ -18,7 +18,7 @@ class CustomUserCreationForm(forms.ModelForm):
         password2 = self.cleaned_data.get('password2')
 
         if password1 and password2 and password1 != password2:
-            raise forms.ValidationError("Passwords don't match.")
+            raise forms.ValidationError("Parolele nu se potrivesc.")
         return password2
 
     def save(self, commit=True):
@@ -35,9 +35,9 @@ class IncidentCreationForm(forms.ModelForm):
 
     # Status choices (you can keep this, though it's no longer needed in the form)
     status_choices = [
-        ('New', 'New'),
-        ('In Progress', 'In Progress'),
-        ('Resolved', 'Resolved'),
+        ('Nou', 'Nou'),
+        ('In progres', 'In progres'),
+        ('Rezolvat', 'Rezolvat'),
     ]
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
