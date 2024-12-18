@@ -132,6 +132,8 @@ def review_incident(request, incident_id):
                         from_email=from_email,  # Replace with your admin email or environment variable
                         recipient_list=[incident.reported_by.email],
                     )
+                    incident.status = 'Rezolvat'
+                    incident.save()
                 except Exception as e:
                     messages.error(request, "There was an error sending the email. Please try again.")
                     return render(request, 'review_incident.html', {'incident': incident, 'form': form})
@@ -144,6 +146,7 @@ def review_incident(request, incident_id):
                 return render(request, 'review_incident.html', {'incident': incident, 'form': form})
     
     return render(request, 'review_incident.html', {'incident': incident, 'form': form})
+
 def incident_search(request):
     query = request.GET.get('query', '')
     

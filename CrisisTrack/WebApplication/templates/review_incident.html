@@ -14,7 +14,6 @@
 
     <h1 class="text-center mb-4">Răspunde la incident: {{ incident.title }}</h1>
 
-    <!-- Incident Information -->
     <div class="row mb-3">
         <div class="col-md-12">
             <p><strong>Categorie:</strong> {{ incident.category }}</p>
@@ -25,17 +24,14 @@
         </div>
     </div>
 
-    <!-- Form to respond to incident -->
     <h4 class="mt-4">Trimite un răspuns</h4>
     <form method="POST">
         {% csrf_token %}
         
-        <!-- Custom Message -->
         <div class="form-group mb-3">
             {{ form.custom_message }}
         </div>
         
-        <!-- Submit Button -->
         <button type="submit" class="btn btn-primary">Trimite mesaj</button>
     </form>
 

@@ -52,7 +52,6 @@
                       <td class="reported-date">{{ incident.reported_at|date:"m/d/Y" }}</td>
                       <td class="organization">{{ incident.organization }}</td>
                       <td>
-                        <!-- Resolve button that redirects to review_incident page -->
                         <a href="{% url 'review_incident' incident.id %}" class="btn btn-warning btn-sm">Rezolvă</a>
                       </td>
                   </tr>

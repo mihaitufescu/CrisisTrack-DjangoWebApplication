@@ -13,10 +13,12 @@
   </div>
 {% endif %}
 <p style="background-color: rgba(255, 255, 255, 0.81); padding: 15px; border-radius: 15px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); margin-top: 20px;">
-    Bun venit  {{ user.first_name }}! CrisisTrack este o platforma dedicată învățării și raportării incidentelor de securitate cibernetică, creată special pentru segmentul financiar. Aici, vei avea acces la resurse educaționale valoroase și la un sistem de raportare eficient al incidentelor de securitate, pentru a contribui la protejarea instituțiilor financiare și a datelor sensibile.
+    Bun venit {{ user.first_name }}! CrisisTrack este o platforma dedicată învățării și raportării incidentelor de securitate cibernetică, creată special pentru segmentul financiar. Aici, vei avea acces la resurse educaționale valoroase și la un sistem de raportare eficient al incidentelor de securitate, pentru a contribui la protejarea instituțiilor financiare și a datelor sensibile.
 </p>
 {% if user.is_authenticated %}
-<p> Vezi incidentele mele </p>
+<div class="text-center mt-4">
+    <a href="{% url 'user_incidents' %}" class="btn btn-outline-primary">Vezi incidentele mele</a>
+</div>
 {% else %}
     <p>Te rog <a href="{% url 'login' %}">autentifica-te</a> sau <a href="{% url 'register' %}">inregistreaza-te</a> pentru a incepe.</p>
 {% endif %}

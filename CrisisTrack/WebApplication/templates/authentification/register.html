@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %}Register - CrisisTrack{% endblock %}
+{% block title %}Inregistrare - CrisisTrack{% endblock %}
 
 {% block content %}
-<h2>Register</h2>
+<h2>Inregistrare</h2>
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="submit" class="btn btn-primary">Inregistrare</button>
 </form>
 {% endblock %}

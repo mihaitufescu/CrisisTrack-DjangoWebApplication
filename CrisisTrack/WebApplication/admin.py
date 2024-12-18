@@ -6,8 +6,6 @@ from django.core.mail import send_mail
 from django.urls import path, reverse
 from django.shortcuts import render, redirect
 
-# Register your models here.
-# Custom User Admin
 class CustomUserAdmin(UserAdmin):
     model = User
     fieldsets = UserAdmin.fieldsets + (
@@ -55,14 +53,12 @@ class IncidentAdmin(admin.ModelAdmin):
     cancel_request.short_description = 'Cancel selected incident request'
 
     def review_request(self, request, queryset):
-        # Get the first selected incident (assuming only one is selected)
         if queryset.count() == 1:
             incident = queryset.first()
-            # Redirect to the custom review page with the incident ID
             return HttpResponseRedirect(f'/review_incident/{incident.id}/')
         
         self.message_user(request, "Please select exactly one incident to review.")
-        return HttpResponseRedirect(request.get_full_path())  # Stay on the current page
+        return HttpResponseRedirect(request.get_full_path())
 
     review_request.short_description = 'Review selected incident request'
 
