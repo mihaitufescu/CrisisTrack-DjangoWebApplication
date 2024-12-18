@@ -3,18 +3,44 @@
 {% block title %}Pagină principală - CrisisTrack{% endblock %}
 
 {% block content %}
-<h1>{{ app_name }}</h1>
-<p>{{ app_description }}</p>
+
+<h1 class="text-center">{{ app_name }}</h1>
+{% if messages %}
+  <div class="alert alert-success" role="alert">
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+  </div>
+{% endif %}
+<p style="background-color: rgba(255, 255, 255, 0.81); padding: 15px; border-radius: 15px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); margin-top: 20px;">
+    Bun venit  {{ user.first_name }}! CrisisTrack este o platforma dedicată învățării și raportării incidentelor de securitate cibernetică, creată special pentru segmentul financiar. Aici, vei avea acces la resurse educaționale valoroase și la un sistem de raportare eficient al incidentelor de securitate, pentru a contribui la protejarea instituțiilor financiare și a datelor sensibile.
+</p>
 {% if user.is_authenticated %}
-    <p>Bine ai venit, {{ user.first_name }}!</p>
+<p> Vezi incidentele mele </p>
 {% else %}
     <p>Te rog <a href="{% url 'login' %}">autentifica-te</a> sau <a href="{% url 'register' %}">inregistreaza-te</a> pentru a incepe.</p>
 {% endif %}
-<div class="card mt-4" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">Ghid de urmat pentru incidente</h5>
-        <p class="card-text">Explorează secțiunea de ghiduri pentru a înțelege pașii necesari în gestionarea diferitelor tipuri de incidente.</p>
-        <a href="/guidelines" class="btn btn-primary">Vezi Ghidurile</a>
+<div class="row mt-4">
+    <!-- Card for Guidelines -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Ghid de urmat pentru incidente</h5>
+                <p class="card-text">Explorează secțiunea de ghiduri pentru a înțelege pașii necesari în gestionarea diferitelor tipuri de incidente.</p>
+                <a href="/guidelines" class="btn btn-primary">Vezi Ghidurile</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card for Recommendations -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Recomandări pentru securitate cibernetică</h5>
+                <p class="card-text">Vezi recomandările noastre pentru a îmbunătăți securitatea cibernetică în organizația ta.</p>
+                <a href="{% url 'recommendation_list' %}" class="btn btn-primary">Vezi Recomandările</a>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

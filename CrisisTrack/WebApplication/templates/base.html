@@ -19,17 +19,28 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                        <!-- Search form inside the ul -->
+                        <li class="nav-item ms-auto me-3"> <!-- Added right margin (me-3) -->
+                            <form class="d-flex" action="{% url 'incident_search' %}" method="GET">
+                                <input class="form-control me-2 w-100" type="search" placeholder="Cauta un articol" aria-label="Cauta" name="query">
+                                <button class="btn btn-outline-success" type="submit">Cauta</button>
+                            </form>
+                        </li>
                     {% if user.is_authenticated %}
                         {% if user.role == 'reporter' %}
-                            <li><a href="{% url 'create_incident' %}" class="btn btn-success me-2">Create Incident</a></li> <!-- Show only for Reporters -->
+                            <li><a href="{% url 'create_incident' %}" class="btn btn-success me-2">Raporteaza incident</a></li> 
                         {% endif %}
                         {% if user.role == 'admin' %}
-                            <li><a href="{% url 'incident_list' %}" class="btn btn-success me-2">Incidents List</a></li> <!-- Show only for Admin -->
+                            <li><a href="{% url 'incident_list' %}" class="btn btn-success me-2">Incidents List</a></li> 
                         {% endif %}
                         <li><a href="{% url 'logout' %}" class="btn btn-danger me-2">Logout</a></li>
                     {% else %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}" class="btn btn-success me-2">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}" class="btn btn-success me-2">Register</a></li>
+                    <li class="nav-item">
+                        <a href="{% url 'login' %}" class="btn btn-success me-2">Autentificare</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'register' %}" class="btn btn-success me-2">Inregistrare</a>
+                    </li>
                     {% endif %}
                 </ul>
             </div>

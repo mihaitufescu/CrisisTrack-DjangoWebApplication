@@ -31,18 +31,21 @@ class CustomUserCreationForm(forms.ModelForm):
 class IncidentCreationForm(forms.ModelForm):
     class Meta:
         model = Incident
-        fields = ['category', 'description', 'organization']  # Exclude status from form fields
+        fields = ['title', 'category', 'description', 'organization']
+        labels = {
+            'title': 'Titlu',
+            'category': 'Categorie',
+            'description': 'Descriere',
+            'organization': 'Organizație',
+        }
+        widgets = {
+            'description': forms.Textarea(attrs={'rows': 4, 'placeholder': 'Detaliază incidentul...'}),
+        }
 
-    # Status choices (you can keep this, though it's no longer needed in the form)
-    status_choices = [
-        ('Nou', 'Nou'),
-        ('In progres', 'In progres'),
-        ('Rezolvat', 'Rezolvat'),
-    ]
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # Set the default value of status to 'New', but keep it hidden from the form
-        self.instance.status = 'New'
+        self.instance.status = 'Nou'
 
 class ReviewIncidentForm(forms.Form):
-    custom_message = forms.CharField(widget=forms.Textarea, label="Custom Message", required=True)
+    custom_message = forms.CharField(widget=forms.Textarea, label="Mesaj", required=True)

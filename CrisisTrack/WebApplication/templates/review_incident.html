@@ -1,18 +1,44 @@
 {% extends 'base.html' %}
-{% block content %}
-    <h1>Review Incident: {{ incident.title }}</h1>
-    <p>Category: {{ incident.category }}</p>
-    <p>Status: {{ incident.status }}</p>
-    <p>Reported By: {{ incident.reported_by.username }}</p>
-    <p>Reported At: {{ incident.reported_at }}</p>
-    <p>Organization: {{ incident.organization }}</p>
 
-    <h2>Review and Send Email</h2>
+{% block content %}
+<div class="container mt-5">
+    {% if messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success!</strong> 
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+
+    <h1 class="text-center mb-4">Răspunde la incident: {{ incident.title }}</h1>
+
+    <!-- Incident Information -->
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <p><strong>Categorie:</strong> {{ incident.category }}</p>
+            <p><strong>Status:</strong> {{ incident.status }}</p>
+            <p><strong>Reportat de:</strong> {{ incident.reported_by.username }}</p>
+            <p><strong>Reportat la:</strong> {{ incident.reported_at }}</p>
+            <p><strong>Organizație:</strong> {{ incident.organization }}</p>
+        </div>
+    </div>
+
+    <!-- Form to respond to incident -->
+    <h4 class="mt-4">Trimite un răspuns</h4>
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Send Email</button>
+        
+        <!-- Custom Message -->
+        <div class="form-group mb-3">
+            {{ form.custom_message }}
+        </div>
+        
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Trimite mesaj</button>
     </form>
 
     <br>
+</div>
 {% endblock %}

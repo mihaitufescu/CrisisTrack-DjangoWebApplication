@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2 class="text-center my-5">Incidentele mele</h2>
+  
+  {% if incidents %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Titlu</th>
+          <th scope="col">Categorie</th>
+          <th scope="col">Status</th>
+          <th scope="col">Data raportării</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for incident in incidents %}
+          <tr>
+            <td>{{ incident.title }}</td>
+            <td>{{ incident.category }}</td>
+            <td>{{ incident.status }}</td>
+            <td>{{ incident.reported_at }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>Nu ai niciun incident raportat.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,24 @@
+<!-- category_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Cuprins articole despre vulnerabilitati si tipuri de atacuri{% endblock %}
+
+{% block content %}
+    <h1>Tipuri de atacuri si vulnerabilitati</h1>
+    <ul>
+        {% for recommendation in recommendations %}
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ recommendation.incident_type }}</h5>
+
+                    {% if recommendation.incident_type %}
+                        <p class="card-text">{{ recommendation.description }}</p>
+                        <a href="{% url 'guideline_detail' incident_type=recommendation.incident_type %}" class="btn btn-primary">Deschide link</a>
+                    {% else %}
+                        <p class="card-text">{{ recommendation.name }} - Nu exista date disponibile</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </ul>
+{% endblock %}
