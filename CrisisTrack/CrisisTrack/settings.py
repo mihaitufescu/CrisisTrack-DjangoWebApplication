@@ -11,13 +11,15 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import dotenv
 from dotenv import load_dotenv
 import os
 
 # Loading enviroment variables file
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 dotenv_path = os.path.join(BASE_DIR, '.env')
-load_dotenv(dotenv_path)
+dotenv_file = dotenv.find_dotenv(dotenv_path)
+load_dotenv(dotenv_file)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -34,7 +36,7 @@ AUTH_USER_MODEL = 'WebApplication.User'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(" ")
 
 
 # Application definition
@@ -89,14 +91,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'CrisisTrack.wsgi.application'
 
+SITE_ID = 2
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'CrisisTrack', 
+        'NAME': 'crisistrack', 
         'USER': os.getenv('ADMIN_USER_DB'),
         'PASSWORD': os.getenv('PASSWORD_DB'),
         'HOST': os.getenv('HOST_DB'), 
@@ -140,7 +142,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "WebApplication/static"),
+    os.path.join(BASE_DIR, "CrisisTrack", "WebApplication/static"),
 )
 STATIC_URL = 'WebApplication/static/js/'
 
@@ -152,8 +154,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = os.getenv('EMAIL_HOST')
 EMAIL_USE_TLS = True
-EMAIL_PORT = 587
+EMAIL_PORT = int(os.getenv('EMAIL_PORT'))
 EMAIL_HOST_USER = os.getenv('SMTP_HOST')
 EMAIL_HOST_PASSWORD = os.getenv('GOOGLE_SMTP_KEY')
+LOGIN_URL = os.getenv('LOGIN_URL')
