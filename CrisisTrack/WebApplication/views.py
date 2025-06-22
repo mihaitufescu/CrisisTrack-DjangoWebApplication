@@ -96,7 +96,7 @@ def guidelines(request):
 
 def guideline_detail(request, incident_type):
     guideline = get_object_or_404(IncidentGuideline, incident_type=incident_type)
-    steps = guideline.steps.split("\\n")  # your original line
+    steps = guideline.steps.split("\\n") 
     print(steps)
     return render(request, 'guideline_detail.html', {
         'incident_type': guideline.incident_type,
@@ -121,7 +121,7 @@ def review_incident(request, incident_id):
         if form.is_valid():
             custom_message = form.cleaned_data['custom_message']
             
-            # Send email to the reported_by user
+ 
             if incident.reported_by.email:
                 from_email = os.getenv('SMTP_HOST')  
                 
@@ -153,7 +153,7 @@ def incident_search(request):
 
     guideline = IncidentGuideline.objects.filter(
         incident_type__icontains=query
-    ).first()  # Get the first match
+    ).first()  
     
     if guideline:
 
