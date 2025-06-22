@@ -15,12 +15,8 @@
 ## Technologies Used
 
 - Django (Python)
-- PostgreSQL (or your configured database)
+- PostgreSQL
 - HTML/CSS templates (with Django templating)
-- Apache NiFi (optional, for external pipeline integration)
-- SMTP for email notifications
-- Docker (optional for deployment)
-- Apache Airflow and AWS (used for separate data engineering components, if integrated)
 
 ## Getting Started
 
@@ -28,5 +24,4 @@
 
 - Python 3.8+
 - pip
-- PostgreSQL or SQLite
-- Virtualenv (recommended)
+- PostgreSQL
